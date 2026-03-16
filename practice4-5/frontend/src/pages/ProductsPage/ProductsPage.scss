@@ -1,0 +1,477 @@
+$bg: #0b0f19;
+$panel: rgba(255, 255, 255, 0.05); 
+$border: rgba(255, 255, 255, 0.12);
+$text: #e7eaf3;
+
+$primary: rgba(99, 102, 241, 0.55);
+$primaryBg: rgba(99, 102, 241, 0.18);
+
+$danger: rgba(239, 68, 68, 0.45);
+$dangerBg: rgba(239, 68, 68, 0.12);
+
+@mixin card($radius: 12px) {
+    border-radius: $radius;
+    border: 1px solid $border;
+    background: rgba(18, 22, 33, 0.85); 
+    backdrop-filter: blur(10px); 
+}
+
+@mixin container($w: 900px) {
+    max-width: $w;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: $text;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    
+    background-color: $bg;
+    background-image: 
+        linear-gradient(rgba(11, 15, 25, 0.82), rgba(11, 15, 25, 0.82)), 
+        url('../../../public/img/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+.header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: #10141e; 
+    position: relative;
+    z-index: 10;
+
+    &__inner {
+        @include container();
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__right {
+        opacity: 0.75;
+        font-size: 13px;
+    }
+}
+
+.brand {
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+
+.container {
+    @include container();
+    padding: 16px;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+
+    .title {
+        margin: 0;
+        font-size: 20px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+}
+
+.btn {
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &--primary {
+        background: $primaryBg;
+        border: 1px solid $primary;
+    }
+
+    &--danger {
+        background: $dangerBg;
+        border: 1px solid $danger;
+    }
+}
+
+.category-filter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(231, 234, 243, 0.7);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+        color: #ffffff;
+        background: rgba(99, 102, 241, 0.15); 
+        border-color: rgba(99, 102, 241, 0.4); 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 
+                    0 0 8px rgba(99, 102, 241, 0.15); 
+    }
+
+    &.active {
+        background: $primary;
+        border-color: $primary;
+        color: white;
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.35);
+    }
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.empty {
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0.85;
+}
+
+.productRow {
+    @include card(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+    animation: fadeScaleIn 0.4s ease-out forwards;
+
+    &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(99, 102, 241, 0.4);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.productMain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.productPhoto {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    position: relative;
+    display: block;
+}
+
+.productPhoto::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(99, 102, 241, 0.2); 
+    border-radius: 8px;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.productRow:hover .productPhoto::after {
+    opacity: 0.1;
+}
+
+.productId {
+    opacity: 0.6;
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: #a0a8c3;
+}
+
+.productName {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1.3;
+    color: #ffffff;
+}
+
+.productCategory {
+    font-size: 13px;
+    color: #a5b4fc;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+}
+
+.productDescription {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 4px 0;
+    color: #d1d5db;
+}
+
+.productPrice {
+    font-size: 17px;
+    font-weight: 700;
+    color: #c4d0ff;
+}
+
+.productStock {
+    font-size: 13px;
+    opacity: 0.8;
+    color: #94a3b8;
+}
+
+.productRating {
+    font-size: 14px;
+    color: #8162ff;
+    font-weight: 500;
+}
+
+.productActions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* =============================================
+МОДАЛКА
+   ============================================= */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #0f1526;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+
+    &__header {
+        padding: 16px;
+        border-bottom: 1px solid $border;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-weight: 700;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 10px;
+    }
+}
+
+.iconBtn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    &:hover { background: rgba(255,255,255,0.05); }
+}
+
+.form {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    opacity: 0.95;
+}
+
+.input,
+.textarea {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    color: inherit;
+    outline: none;
+    &:focus { border-color: $primary; }
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* =============================================
+АНИМАЦИИ
+   ============================================= */
+
+.flying-cart {
+    position: fixed;
+    font-size: 42px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: flyUp 1.8s ease-out forwards;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes flyUp {
+    0% { transform: scale(0.3) rotate(-20deg); opacity: 1; bottom: 100px; }
+    30% { transform: scale(1.4) rotate(30deg); }
+    70% { transform: scale(1.1) rotate(-15deg); }
+    100% { transform: scale(0.6) rotate(45deg) translateY(-420px); opacity: 0; }
+}
+
+@keyframes fadeScaleIn {
+    0% { opacity: 0; transform: scale(0.95) translateY(15px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* =============================================
+КНОПКА "КУПИТЬ" (БЕЗ ИЗМЕНЕНИЙ ЛОГИКИ)
+   ============================================= */
+.btn--buy {
+    background: rgba(99, 102, 241, 0.25);
+    border: 1px solid #6366f1;
+    color: #6366f1;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        background: rgba(99, 102, 241, 0.45);
+        transform: scale(1.06);
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+        color: white;
+    }
+
+    &.btn--clicked {
+        transform: scale(0.92);
+        background: #6366f1 !important;
+        color: white !important;
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.9);
+        animation: clickPulse 0.4s ease-out;
+    }
+
+    @keyframes clickPulse {
+        0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+        70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+    }
+}
+
+.buy-notification {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translate(-50%, -20px);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &.show { opacity: 1; transform: translate(-50%, 0); }
+    &.fade-out { opacity: 0; transform: translate(-50%, -40px); }
+}
+
+.admin-info {
+    margin-top: 40px;
+    padding: 24px;
+    background: rgba(15, 21, 38, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: #a5b4fc;
+}
+
+/* =============================================
+ОФОРМЛЕНИЕ ФУТЕРА
+   ============================================= */
+.footer {
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0b0f19;
+    padding: 40px 0;
+    position: relative;
+    z-index: 10;
+
+    &__inner {
+        @include container();
+        padding: 0 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #64748b;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        
+        text-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
+        
+        &::before, &::after {
+            content: "";
+            height: 1px;
+            width: 50px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+            margin: 0 20px;
+        }
+    }
+}

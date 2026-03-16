@@ -1,0 +1,127 @@
+Сервер запущен на http://localhost:3001
+Swagger UI доступен по адресу: http://localhost:3001/api-docs
+[2026-03-16T11:01:23.969Z] [GET] 404 /
+[2026-03-16T11:01:25.493Z] [GET] 301 /
+[2026-03-16T11:01:25.495Z] [GET] 304 /
+[2026-03-16T11:01:25.766Z] [GET] 304 /swagger-ui.css
+[2026-03-16T11:01:25.769Z] [GET] 304 /swagger-ui-standalone-preset.js
+[2026-03-16T11:01:25.769Z] [GET] 200 /swagger-ui-init.js
+[2026-03-16T11:01:25.770Z] [GET] 304 /swagger-ui-bundle.js
+[2026-03-16T11:02:46.654Z] [GET] 301 /
+[2026-03-16T11:02:46.656Z] [GET] 304 /
+[2026-03-16T11:02:46.661Z] [GET] 304 /swagger-ui-init.js
+[2026-03-16T11:02:46.661Z] [GET] 304 /swagger-ui-standalone-preset.js
+[2026-03-16T11:02:46.662Z] [GET] 304 /swagger-ui-bundle.js
+[2026-03-16T11:02:46.663Z] [GET] 304 /swagger-ui.css
+[2026-03-16T11:03:10.292Z] [GET] 200 /api/products
+[2026-03-16T11:03:12.914Z] [GET] 200 /
+[2026-03-16T11:03:12.926Z] [GET] 304 /swagger-ui-init.js
+[2026-03-16T11:03:12.928Z] [GET] 304 /swagger-ui.css
+[2026-03-16T11:03:12.928Z] [GET] 304 /swagger-ui-standalone-preset.js
+[2026-03-16T11:03:12.929Z] [GET] 304 /swagger-ui-bundle.js
+[2026-03-16T11:03:13.003Z] [GET] 304 /favicon-16x16.png
+[2026-03-16T11:05:33.102Z] [GET] 304 /api/products
+[2026-03-16T11:07:00.165Z] [GET] 304 /api/products
+[2026-03-16T11:07:13.026Z] [GET] 404 /
+[2026-03-16T11:07:16.118Z] [GET] 301 /
+[2026-03-16T11:07:16.119Z] [GET] 304 /
+[2026-03-16T11:07:16.120Z] [GET] 304 /swagger-ui-init.js
+[2026-03-16T11:07:16.121Z] [GET] 304 /swagger-ui.css
+[2026-03-16T11:07:16.121Z] [GET] 304 /swagger-ui-standalone-preset.js
+[2026-03-16T11:07:16.122Z] [GET] 304 /swagger-ui-bundle.js
+[2026-03-16T11:07:27.136Z] [PATCH] 200 /api/products/ZLr54t
+Body: {
+  name: 'Ben Drowned',
+  category: 'Viruses',
+  description: 'Haunted video game character who drowns his victims in digital nightmares312',
+  price: 299,
+  stock: 1,
+  rating: 4.6,
+  photoUrl: 'https://i.pinimg.com/736x/d6/50/a4/d650a449abddc8df43a70d8f39cafbdd.jpg'
+}
+[2026-03-16T11:07:31.210Z] [PATCH] 200 /api/products/ZLr54t
+Body: {
+  name: 'Ben Drowned123',
+  category: 'Viruses',
+  description: 'Haunted video game character who drowns his victims in digital nightmares312',
+  price: 299,
+  stock: 1,
+  rating: 4.6,
+  photoUrl: 'https://i.pinimg.com/736x/d6/50/a4/d650a449abddc8df43a70d8f39cafbdd.jpg'
+}
+[2026-03-16T11:07:37.749Z] [GET] 200 /api/products
+SyntaxError: Expected double-quoted property name in JSON at position 28 (line 3 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/body-parser/lib/types/json.js:72:19)
+    at /Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/body-parser/lib/read.js:162:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:228:14)
+    at invokeCallback (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:238:16)
+    at done (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{\n  "name": "Eyeless Jack",\n}',
+  type: 'entity.parse.failed'
+}
+SyntaxError: Expected double-quoted property name in JSON at position 28 (line 3 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/body-parser/lib/types/json.js:72:19)
+    at /Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/body-parser/lib/read.js:162:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:228:14)
+    at invokeCallback (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:238:16)
+    at done (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{\n  "name": "Eyeless Jack",\n}',
+  type: 'entity.parse.failed'
+}
+Сервер запущен на http://localhost:3001
+Swagger UI доступен по адресу: http://localhost:3001/api-docs
+[2026-03-16T11:09:16.080Z] [PATCH] 404 /api/products/ZLr54t
+Body: { name: 'Eyeless Jack' }
+[2026-03-16T11:09:22.297Z] [GET] 200 /api/products
+[2026-03-16T11:09:48.987Z] [PATCH] 200 /api/products/LrqBOT
+Body: { name: 'Eyeless Jack' }
+[2026-03-16T11:10:19.178Z] [GET] 200 /api/products
+[2026-03-16T11:10:22.920Z] [GET] 404 /
+[2026-03-16T11:10:24.367Z] [GET] 301 /
+[2026-03-16T11:10:24.369Z] [GET] 304 /
+[2026-03-16T11:10:24.371Z] [GET] 304 /swagger-ui.css
+[2026-03-16T11:10:24.373Z] [GET] 304 /swagger-ui-init.js
+[2026-03-16T11:10:24.373Z] [GET] 304 /swagger-ui-standalone-preset.js
+[2026-03-16T11:10:24.374Z] [GET] 304 /swagger-ui-bundle.js
+[2026-03-16T11:10:34.029Z] [GET] 200 /api/products
+SyntaxError: Expected double-quoted property name in JSON at position 19 (line 3 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/body-parser/lib/types/json.js:72:19)
+    at /Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/body-parser/lib/read.js:162:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:228:14)
+    at invokeCallback (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:238:16)
+    at done (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/Applications/programming/MIREA/fullstack-KR1/practice4-5/backend/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:508:28)
+    at endReadableNT (node:internal/streams/readable:1729:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{\n  "name": "abc",\n}',
+  type: 'entity.parse.failed'
+}
+[2026-03-16T11:11:18.944Z] [GET] 304 /api/products
+[2026-03-16T11:11:18.945Z] [GET] 200 /api/products
+[2026-03-16T11:11:49.830Z] [PATCH] 200 /api/products/LrqBOT
+Body: { name: 'abc' }
+[2026-03-16T11:13:11.826Z] [PATCH] 200 /api/products/LrqBOT
+Body: { name: 'abc' }
+[2026-03-16T11:13:17.158Z] [GET] 200 /api/products
+[2026-03-16T11:13:17.159Z] [GET] 200 /api/products
